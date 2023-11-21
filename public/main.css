@@ -1,0 +1,92 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz@0,9..40;1,9..40&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    --offBlack: #393d3fff;
+    --offWhite: #fdfdffff;
+    --highlight: #ca3c25ff;
+    --secondaryHighlight: #62929eff;
+    --wildCard: #fa7921ff;
+    color: var(--offBlack);
+}
+
+#mainContainer {
+    width: 50vw;
+    
+    margin: 3rem auto;
+}
+
+#title {
+    font-size: 5rem;
+    color: var(--wildCard);
+    margin-bottom: 1rem;
+}
+
+.card {
+    margin: 1rem 0;
+    transition: border .5s ease;
+    padding: 1rem;
+}
+
+.card:hover {
+    cursor: pointer;
+    border: 3px solid var(--highlight);
+}
+
+.btn {
+    padding: .8rem .4rem;
+    margin-right: 1rem;
+    margin-top: .5rem;
+    transition: padding .2s ease;
+}
+
+.btn:hover {
+    cursor: pointer;
+    padding: .9rem .5rem;
+}
+
+.default {
+    background: var(--wildCard);
+    color: var(--offWhite)
+}
+
+.danger {
+    background: red;
+    color: var(--offWhite)
+}
+
+#editForm {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.inputField {
+    border: none;
+    font-size: 1.4rem;
+    border-bottom: 1px solid var(--offBlack);
+    padding: .2rem 0;
+}
+
+.inputField:focus {
+    outline: none;
+}
+
+.mBottom {
+    margin-bottom: 1rem;
+}
+
+.error {
+    font-size: 3rem;
+    color: red;
+}
+
+
+
+
