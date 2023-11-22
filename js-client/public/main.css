@@ -43,6 +43,7 @@
     padding: .8rem .4rem;
     margin-right: 1rem;
     margin-top: .5rem;
+    border: none;
     transition: padding .2s ease;
 }
 

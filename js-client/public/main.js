@@ -1,16 +1,94 @@
 
-
-
 async function fetchData() {
     const h1 = document.createElement('h1')
     h1.id = 'title'
     h1.textContent = 'Instructors'
     document.querySelector('#mainContainer').appendChild(h1)
+    createAddButton()
     const res = await fetch('http://localhost:3000/api')
     const data = await res.json()
-    
     createContainer()
     appendDivs(data)
+}
+
+
+function createAddButton() {
+    const addBtn = document.createElement('div')
+    addBtn.addEventListener('click', showCreateForm)
+    addBtn.className = 'btn'
+    addBtn.style.textAlign = 'center'
+    addBtn.classList.add('default')
+    addBtn.textContent = 'New'
+    document.querySelector('#mainContainer').appendChild(addBtn)
+}
+
+function showCreateForm() {
+    clear()
+    const h1 = document.createElement('h1')
+    h1.className = 'formTitle'
+    h1.textContent = 'New Instructor'
+
+    const form = document.createElement('form')
+    form.id = 'createForm'
+    form.style.display = 'flex'
+    form.style.flexDirection = 'column'
+
+    const name = document.createElement('input')
+    name.type = 'text'
+    name.className = 'inputField'
+    name.value = 'Enter a name...'
+
+    const areaofexpertise = document.createElement('input')
+    areaofexpertise.type = 'text'
+    areaofexpertise.className = 'inputField'
+    areaofexpertise.value = 'Enter an area of expertise...'
+
+    const age = document.createElement('input')
+    age.className = 'inputField'
+    age.type = 'text'
+    age.value = 'Enter an age...'
+
+    const submit = document.createElement('input')
+    submit.type = 'submit'
+    submit.value = 'Submit'
+
+    submit.classList.add('btn')
+    submit.classList.add('default')
+
+    form.appendChild(name)
+    form.appendChild(areaofexpertise)
+    form.appendChild(age)
+    form.appendChild(submit)
+
+    form.addEventListener('submit', handleCreate)
+
+    document.querySelector('#mainContainer').appendChild(h1)
+    document.querySelector('#mainContainer').appendChild(form)
+}
+
+async function handleCreate(e) {
+    e.preventDefault()
+
+    const fields = e.target.childNodes
+
+    const name = fields[0].value
+    const areaofexpertise = fields[1].value
+    const age = fields[2].value
+
+    const options = {
+        name,
+        areaofexpertise,
+        age
+    }
+
+    try {
+        
+    } catch (error) {
+        
+    }
+
+    console.log(fields[0].value)
+    console.log(e.target)
 }
 
 function createContainer() {
@@ -34,9 +112,7 @@ function appendDivs(arr) {
 
 function createCard(obj) {
     const card = document.createElement('div')
-    
-    
-    
+
     card.className = 'card'
     const h1 = document.createElement('h1')
     h1.id = obj.instructorid
